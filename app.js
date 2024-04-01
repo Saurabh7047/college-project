@@ -5,7 +5,7 @@ const config = require("./config/config");
 
 const mongoose = require("mongoose");
 mongoose
-  .connect(config.MONGOURL)
+  .connect(  "mongodb+srv://saurabhrajput9460:saurabh12345@managesystem.aiksq06.mongodb.net/manageSystem?retryWrites=true&w=majority&appName=manageSystem")
   .then((result) => {
     console.log("connection successfull");
   })
