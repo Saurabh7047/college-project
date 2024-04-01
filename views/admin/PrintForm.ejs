@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Print Form</title>
+<style>
+    /* CSS for A4 size paper */
+    @media print {
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        body {
+            height: 100%;
+            width: 100%;
+            padding: 1cm;
+        }
+        form {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            /* border: 1px solid #000; Border for form */
+        }
+
+        #passportPhoto{
+        border: 1px solid #000;
+
+        }
+        button{
+            display: none;
+        }
+        
+
+        
+
+
+        
+    }
+
+
+    #header {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        
+    }
+    #header img {
+        height: 100%;
+        
+        margin: 0 20px; 
+    }
+    h3{
+        text-decoration: underline;
+        text-align: center;
+    }
+    #passportPhoto{
+        height: 100px;
+        width: 80px;
+        position: absolute;
+        right: 2cm;
+        top: -1cm;
+
+    }
+    
+    h3{
+        margin-top: 0;
+    }
+
+    table {
+        position: relative;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    caption {
+        caption-side: top;
+        font-weight: bold;
+        font-size: 15px;
+        text-align: start;
+    }
+    #main{
+        height: 11.7in;
+        width: 8.3in;
+        position: relative;
+    }
+    #table{
+        position: relative;
+    }
+    #signature{
+        display: flex;
+        justify-content: space-between;
+    }
+    button{
+        position: absolute;
+        left: 50%;
+        
+    }
+</style>
+</head>
+<body>
+    <div id="main">
+    <div id="header">
+        <img src="/images/25yearsCelebrationLogo.jpeg" alt="Logo 1">
+        <img src="/images/ITMGOILogo.png" alt="Logo 2">
+    </div>
+    <h4 align="center"> <u>APPLICATION FOR REGISTRATION</u></h4>
+    <div id="table">
+        
+    <div id="passportPhoto"></div>
+    <form id="print-form">
+        <h5>S.No. <u><%= data.applicantNo %></u> </h5>
+    <table>
+  <tr>
+    <th>Name of Applicant</th>
+    <td style="text-transform: capitalize;"><%= data.studentName %></td>
+    <th>Date of Birth</th>
+    <td><%= data.dob %></td>
+  </tr>
+  
+
+  <tr>
+    <th>Father's Name</th>
+    <td><%= data.fatherName %></td>
+    <th>Mother's Name</th>
+    <td><%= data.motherName %></td>
+  </tr>
+  <tr>
+    <th>Address of Communicaition</th>
+    <td colspan="3"><%= data.address %></td> 
+    
+  </tr>
+
+  <tr>
+    <th>Contact No.</th>
+    <td><%= data.mobile %></td>
+    <th>Guardian Contact</th>
+    <td><%= data.guardianMobile %></td>
+  </tr>
+
+  <tr>
+    <th>Email ID</th>
+    <td style="text-transform: lowercase;"><%= data.email %></td>
+    <th>Occupation</th>
+    <td><%= data.occupation %></td>
+  </tr>
+
+  <tr>
+    <th>Nationality</th>
+    <td><%= data.nationality%></td>
+    <th>Category</th>
+    <td><%= data.category %></td>
+  </tr>
+</table>
+<table>
+    <caption>Course & Branch (in order of there preference)</caption>
+    <tr>
+        <th>Course</th>
+        <td colspan="2"><%= data.courses.course %></td>
+    </tr>
+    <tr>
+        <th>1st Branch</th>
+        <th>2nd Branch</th>
+        <th>3rd Branch</th>
+    </tr>
+
+    <tr>
+        <td><%= data.courses.branch[0] %></td>
+        <td><%= data.courses.branch[1] %></td>
+        <td><%= data.courses.branch[2] %></td>
+    </tr>
+
+</table>
+
+    <table>
+        <caption>Educational Qualification</caption>
+        <tr>
+            <th>Examination Passed</th>
+            <th>Examination Authority</th>
+            <th>Year of Passing</th>
+            <th>Marks(%)/CGPA</th>
+        </tr>
+        <tbody>
+            
+            <tr><td><%= data.qualifyingDegree.degreeName[0] %></td>
+            <td><%= data.qualifyingDegree.examinationAuthority[0] %></td>
+            <td><%= data.qualifyingDegree.passingYear[0] %></td>
+            <td><%= data.qualifyingDegree.percentage[0] %></td>
+        </tr>
+            <tr><td><%= data.qualifyingDegree.degreeName[1] %></td>
+                <td><%= data.qualifyingDegree.examinationAuthority[1] %></td>
+                <td><%= data.qualifyingDegree.passingYear[1] %></td>
+                <td><%= data.qualifyingDegree.percentage[1] %></td></tr>
+            <tr><td><%= data.qualifyingDegree.degreeName[2] %>3</td>
+                <td><%= data.qualifyingDegree.examinationAuthority[2] %></td>
+                <td><%= data.qualifyingDegree.passingYear[2] %></td>
+                <td><%= data.qualifyingDegree.percentage[2] %></td></tr>
+            
+        </tbody>
+        
+    </table>
+
+    <table>
+        <caption>JEE Mains Marks</caption>
+        <tr>
+            <th>Enrollment number </th>
+            <th>Marks/Percentile</th>
+            <th>Rank</th>
+        </tr>
+        <tr>
+            <td><%= data.jeeMains.jeeEnrollmentNumber %></td>
+            <td><%= data.jeeMains.jeeMarksPercentile %></td>
+            <td><%= data.jeeMains.jeeRank %></td>
+        </tr>
+    </table>
+
+    <table>
+        <caption>Regitration Fee Details</caption>
+        <tr>
+            <th>Mode of Payment</th>
+            <th>Receipt Number</th>
+            <th>Amount</th>
+            <th>Date of Payment</th>
+        </tr>                                        
+        <tr>
+            <td><%= data.registrationFee.paymentMode %></td>
+            <td><%= data.registrationFee.receiptNumber %></td>
+            <td><%= data.registrationFee.amount %></td>
+            <td><%= data.registrationFee.receiptDate %></td>
+        </tr>
+    </table>
+
+    <table>
+        <caption>Scheme Details</caption>
+        <tr><th width="18%">Scheme Opted</th>
+           <% data.schemeOpted.forEach((e)=>{ %>
+            <td><%= e %></td>
+           <% }) %>
+        </tr>
+    </table>
+    <table>                                                                 
+        <caption>Additional Details</caption>
+        <tr><td><%= data.additionDetails.hostel %></td>
+            <td><%= data.additionDetails.busExeption %></td>
+        </tr>
+    </table>
+    <p>
+    <b>Note-</b>
+    (a)Registrarion fee is non-refundable porvided the applicationis granted admission in any of an available branch opted by the Student. <br>
+    (b)Registration fee after deducting processing fee is refundable only in the case Institute is not able to provide admission in the Branch Opted by the Student.</p>
+        <div id="signature">
+            <div id="guardianSign"><b>Signature of Father/Guardian</b></div>
+            <div id="applicantSign"><b>Signature of Applicant</b></div>
+        </div>
+
+</div>
+
+
+<button  id="button" onclick="printForm()">Print Form</button>
+        </div>
+    </form>
+
+    <script>
+        function printForm() {
+            window.print();
+        }
+    </script>
+</body>
+</html>

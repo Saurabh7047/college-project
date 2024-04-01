@@ -1,0 +1,85 @@
+<% include('../layouts/header.ejs')  %>
+
+
+
+
+<h1>Dashboard</h1>
+
+
+
+
+<a href="/admin/export-user">Export User</a>
+<a href="/admin/export-user-pdf">Export User into pdf</a>
+
+<br><br>
+
+<form>
+    <input type="text" placeholder="Search User name , email, mobile" name="search">
+    <input type="submit" value="Search">
+</form>
+
+<table width="50%">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Image</th>
+        <th>verified</th>
+        <th>Actions</th>
+    </tr>
+    
+
+        <% users.forEach(user => { %>
+            <tr>
+                <td><%=user.name  %></td>
+                <td><%=user.email  %></td>
+                <td><%=user.mobile  %></td>
+                <td><img src="/images/<%=user.image  %>" alt="" width="100px" height="100px"></td>
+                <td>
+                    <% if(user.is_verified ==0 ) { %>
+
+                        <p>Not verified </p>
+                        <%
+                    }
+                    else{
+                        %>
+                        <p>verified </p>
+                        <%
+                    }
+                    %>
+                </td>
+                <td>
+                    <a href="/admin/edit-user?id=<%= user._id %>">Edit</a>
+                    <a href="/admin/delete-user?id=<%= user._id %>">delete</a>
+
+                </td>
+
+            </tr>
+       <% })  %>
+
+   
+</table>
+<br>
+
+
+<%  
+for(let j = 1;j<=totalPages;j++){
+    %>
+    <a href="?page=<%= j %>"> <%= j %></a>
+    <%
+}
+%>
+
+
+<br>
+<br>
+
+<a href="/admin/home">Go to Home</a>
+
+
+
+
+
+
+
+<% include('../layouts/footer.ejs')  %>

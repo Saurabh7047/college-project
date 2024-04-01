@@ -1,0 +1,134 @@
+<%- include('./header.ejs') %>
+    <h1 class="mt-5">view Full Registration</h1>
+          <a href="/editreg/<%= view._id %>" class="btn btn-success ">edit</a>
+    <a class="btn btn-info" href="/admin/print/<%= view._id %>">Print</a>
+
+
+<div class="container">
+    <table class="table table-bordered">
+      <tr>
+        <th>Id</th>
+        <td><%=view._id %></td>
+      </tr>
+      <tr>
+        <th>Applicant Number</th>
+        <td><%=view.applicantNo %></td>
+      </tr>
+      
+      <tr>
+        <th>Name</th>
+        <td><%=view.studentName %></td>
+      </tr>
+      <tr>
+        <th>Date of Birth</th>
+        <td><%=view.dob %></td>
+      </tr>
+      
+      <tr>
+        <th>Email</th>
+        <td><%=view.email %></td>
+      </tr>
+      <tr>
+        <th>Phone</th>
+        <td><%=view.mobile %></td>
+      </tr>
+      <tr>
+        <th>Father's Name</th>
+        <td><%=view.fatherName %></td>
+      </tr>
+      <tr>
+        <th>Mother's Name</th>
+        <td><%=view.motherName %></td>
+      </tr>
+       <tr>
+        <th>Father's Mobile</th>
+        <td><%=view.guardianMobile %></td>
+      </tr>
+       <tr>
+        <th>Date of Birth</th>
+        <td><%=view.dob %></td>
+      </tr>
+      <tr>
+        <th>Occupation</th>
+        <td><%=view.occupation %></td>
+      </tr>
+      
+       <tr>
+        <th>Gender</th>
+        <td><%=view.gender %></td>
+      </tr>
+       <tr>
+        <th>Address</th>
+        <td><%=view.address %></td>
+      </tr>
+      
+       <tr>
+        <th>Nationality</th>
+        <td><%=view.nationality %></td>
+      </tr>
+       <tr>
+        <th>Category</th>
+        <td><%=view.category %></td>
+      </tr>
+       <tr>
+        <th>Course</th>
+        <td><%=view.courses.course %></td>
+      </tr>
+       <tr>
+        <th>Degree</th>
+        <td><%=view.courses.branch %></td>
+      </tr>
+       <tr>
+        <th>State</th>
+        <td><%=view.location.state %></td>
+      </tr>
+       <tr>
+        <th>City</th>
+        <td><%=view.location.city %></td>
+      </tr>
+      <tr>
+        <th>Jee Enrollment Number</th>
+        <td><%=view.jeeMains.jeeEnrollmentNumber %></td>
+      </tr>
+       <tr>
+        <th>Jee Percentile</th>
+        <td><%=view.jeeMains.jeeMarksPercentile %></td>
+      </tr>
+      <tr>
+        <th>Jee Rank</th>
+        <td><%=view.jeeMains.jeeRank %></td>
+      </tr>
+      <tr>
+        <th>Registration Payment Mode</th>
+        <td><%=view.registrationFee.paymentMode %></td>
+      </tr>
+      <tr>
+        <th>Registration Amount</th>
+        <td><%=view.registrationFee.amount %></td>
+      </tr>
+      <tr>
+        <th>Registration Receipt</th>
+        <td><%=view.registrationFee.receiptNumber %></td>
+      </tr>
+      <tr>
+        <th>Registration Receipt Mode</th>
+        <td><%=view.registrationFee.receiptDate %></td>
+      </tr>
+       <tr>
+        <th>Registration Date</th>
+        <td><%=view.registrationDate %></td>
+      </tr>
+      <tr>
+        <th>Faculty Name</th>
+        <td><%=view.facultyName %></td>
+      </tr>
+    </table>
+
+  </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+

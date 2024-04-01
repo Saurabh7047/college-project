@@ -1,0 +1,60 @@
+<%- include('./header.ejs') %>
+
+
+<div id="inq" class="p-2 " style="height: 74%; border: 1px solid black; position: relative; ">
+    <div id="top" class="d-flex align-items-center justify-content-between"     >
+        <h4>Inquiry Details</h4>
+        <form class="text-end pe-1" >
+          <input class="mt-1 px-1" type="text" name="searchinq2" id="searchBranch" placeholder="Enter branch...">
+          <input class="mt-1 px-1" type="date" name="searchinq1" id="searchDate" placeholder="Enter date...">
+          <input  class="px-2" type="submit" value="Search" style="border-radius: 6px; border: 1px solid black; background-color:white; color: #992c2f;">
+        </form>
+    </div>
+    <div id="inquiry" style="height: 90.5%; overflow-y: auto; transition: all ease 0.5s;">
+        <table class="table table-striped mt-1">
+    <tr>
+        <th>S.No.</th>
+        <th>Applicant No.</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Father Name</th>
+        <th>Course</th>
+        <th>Branch</th>
+            <th class="text-center" >Actions</th>
+
+       
+    </tr>
+    
+    <% i=1 %>
+
+        <% user.forEach(user => { %>
+           
+            <tr>
+                <td><%= i++ %></td>
+                <td><%= user.applicantNo %></td>
+                <td><%= user.studentName %></td>
+                <td><%= user.email %></td>
+                <td><%= user.mobile %></td>
+                <td><%= user.fatherName %></td>
+                <td><%= user.courses.course %></td>
+                <td ><%= user.courses.branch %></td>
+                <td class="d-flex  gap-2 ">
+                    <a href="/admin/viewreg/<%= user._id %>" class="btn btn-info">view</a>
+                    <a href="/admin/editreg/<%= user._id %>" class="btn btn-success">edit</a>
+
+                </td>
+             
+                
+            </tr>
+       <% })  %>
+
+   
+</table>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
+

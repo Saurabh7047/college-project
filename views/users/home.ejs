@@ -1,0 +1,36 @@
+<% include('../layouts/header.ejs')  %>
+
+
+
+<h1>Welcome,<%= user.name %> </h1>
+
+<table width="50%">
+    <tr>
+        <td><img src="/images/<%= user.image %>" width="100px" height="100px" alt="<%= user.image %>"></td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><%= user.email %></td>
+    </tr>
+    <tr>
+        <td>mobile</td>
+        <td><%= user.mobile %></td>
+    </tr>
+    <tr>
+        <td>verified</td>
+        <td>
+            <% if(user.is_verified === 1){ %>
+                <p>true</p>
+         <%   } %>
+        </td>
+    </tr>
+</table>
+<a href="/edit?id=<%= user._id %>">Edit</a>
+
+<a href="/logout">Logout</a>
+
+
+
+
+
+<% include('../layouts/footer.ejs')  %>

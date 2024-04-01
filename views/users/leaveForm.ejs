@@ -1,0 +1,49 @@
+<%- include('./header.ejs') %>
+
+            <div class="container ">
+                <h3 class="mt-3" style="text-align: center;">Faculty Leave Request Portal</h3>
+                <form id="leaveForm" class="container" action="/leaveForm" method="post">
+                  <div class="form-floating mb-2">
+                    <input type="text" name="facultyName" class="form-control" id="floatingGC" placeholder="Faculty Name">
+                    <label  for="floatingGC">Faculty Name</label>
+                  </div>
+          
+                <div class="form-floating mb-2">
+                  <input type="date" name="leaveStart" class="form-control" id="leaveStartDate" placeholder="Leave Start Date">
+                  <label for="leaveStartDate">Leave Start Date</label>
+                </div>
+          
+                <div class="form-floating mb-2">
+                  <input type="date" name="leaveEnd" class="form-control" id="leaveEndDate" placeholder="Leave End Date">
+                  <label for="leaveEndDate">Leave End Date</label>
+                </div>
+          
+                  <div class="form-floating mb-2 mt-2">
+                    <select name="leaveType" class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                      <option selected>Select Leave Type</option>
+                      <option value="Casual">Casual</option>
+                      <option value="CL">CL</option>
+                      <option value="EL">EL</option>
+                      <option value="HPL">HPL</option>
+                      <option value="AL">AL</option>
+                      <option value="DL">DL</option>
+                      <option value="CCl">CCl</option>
+          
+                    </select>
+                    <label for="floatingSelect">LeaveType</label>
+                  </div>
+                  <div class="form-floating mb-2">
+                    <input type="text" name="subsitutionName" class="form-control" id="floatingSN" placeholder="Substitution Name">
+                    <label  for="floatingGC"> Substitution Name</label>
+                  </div>
+                 
+                  
+                  <br /><br />
+          
+                  <button class="btn btn-primary" type="submit">Submit Leave Request</button>
+                </form>
+              </div>
+        </div>
+    </div>
+</body>
+</html>

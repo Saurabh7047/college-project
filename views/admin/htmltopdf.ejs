@@ -1,0 +1,49 @@
+
+
+<h1>User List</h1>
+
+
+<br>
+
+
+<table width="100%">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Image</th>
+        <th>verified</th>
+       
+    </tr>
+    
+
+        <% users.forEach(user => { %>
+            <tr>
+                <td><%=user.name  %></td>
+                <td><%=user.email  %></td>
+                <td><%=user.mobile  %></td>
+                <td><img src="http://localhost:3000/images/<%=user.image  %>" alt="" width="100px" height="100px"></td>
+                <td>
+                    <% if(user.is_verified ==0 ) { %>
+
+                        <p>Not verified </p>
+                        <%
+                    }
+                    else{
+                        %>
+                        <p>verified </p>
+                        <%
+                    }
+                    %>
+                </td>
+               
+
+            </tr>
+       <% })  %>
+
+   
+</table>
+
+
+
+
